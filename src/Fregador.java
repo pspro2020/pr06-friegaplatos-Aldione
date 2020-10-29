@@ -15,11 +15,11 @@ public class Fregador implements Runnable {
 
     @Override
     public void run() {
-        while (true) {
+        while (!Thread.currentThread().isInterrupted()) {
             try {
                 bandeja.sueltaPlatoMojado(limpiar());
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                return;
             }
         }
     }

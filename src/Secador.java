@@ -15,11 +15,11 @@ public class Secador implements Runnable {
 
     @Override
     public void run() {
-        while(true){
+        while(!Thread.currentThread().isInterrupted()){
             try {
                 bandeja.sueltaPlatoSeco(secarPlato(bandeja.cogerPlatoMojado()));
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                return;
             }
         }
     }

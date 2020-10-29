@@ -14,11 +14,11 @@ public class Organizador implements Runnable{
 
     @Override
     public void run() {
-        while (true){
+        while (!Thread.currentThread().isInterrupted()){
             try {
                 alacena(bandeja.cogerPlatoSeco());
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                return;
             }
         }
     }
